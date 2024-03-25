@@ -3,23 +3,17 @@ import {OrderSide, OrderType} from "./constants";
 import {types} from "./types";
 
 
-// 将Base64编码的私钥解码
 // const privateKeyBytes = Buffer.from("", 'base64');
 //
 //
-// // 从私钥种子生成密钥对
 // const keyPair = nacl.sign.keyPair.fromSeed(privateKeyBytes);
 //
-// // 使用密钥对中的私钥部分（这里实际上是私钥和公钥的组合）
 // const privateKey = keyPair.secretKey;
 //
-// // 准备消息
 // const message = "instruction=balanceQuery&timestamp=1709650676316";
 //
-// // 对消息进行签名
 // const signature = nacl.sign.detached(Buffer.from(message), privateKey);
 //
-// // 对签名进行Base64编码
 // const signatureBase64 = Buffer.from(signature).toString('base64');
 // console.log(signatureBase64);
 
