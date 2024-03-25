@@ -55,7 +55,7 @@ export class History implements IHistory {
         }
     }
 
-    async getFills(params: types.FillHistoryParams): Promise<types.FillHistoryResult[] | null> {
+    async getFills(params?: types.FillHistoryParams): Promise<types.FillHistoryResult[] | null> {
         if (!params) {
             throw new Error("Fill history params is null");
         }

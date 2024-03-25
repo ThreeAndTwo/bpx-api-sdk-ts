@@ -1,6 +1,6 @@
 import {AxiosInstance} from 'axios';
 import {setHeaders, signature} from "./utils";
-import {Instruction, OrderSide, OrderType} from "./constants";
+import {Instruction, OrderSide, OrderType, SelfTradePrevention, TimeInForce} from "./constants";
 import {IOrder} from "./services";
 import {types} from "./types";
 import * as nacl from "tweetnacl";
@@ -90,11 +90,15 @@ export class Order implements IOrder {
             side: params.side,
             symbol: params.symbol,
             postOnly: true,
-            // Add optional fields as needed
+
             ...params.clientId && {clientId: params.clientId},
             ...params.price && {price: params.price},
             ...params.quantity && {quantity: params.quantity},
-            // Continue adding other optional fields in the same manner
+            ...params.quoteQuantity && {quoteQuantity: params.quoteQuantity},
+            ...params.selfTradePrevention && {selfTradePrevention: params.selfTradePrevention},
+            ...params.timeInForce && {timeInForce: params.timeInForce},
+            ...params.triggerPrice && {triggerPrice: params.triggerPrice},
+
         };
 
         const signRes = signature(Instruction.InstructionOrderExecute, this.privateKey, {}, bodyMap);
@@ -144,12 +148,13 @@ export class Order implements IOrder {
         }
     }
 
-    async getOrders(symbol: string): Promise<types.OrderResult[] | null> {
-        symbol = symbol.toUpperCase();
+    async getOrders(symbol?: string): Promise<types.OrderResult[] | null> {
+
         const queryMap: { [key: string]: any } = {};
         let url = `${this.host}/api/v1/orders`;
 
-        if (symbol !== '') {
+        if (symbol != undefined) {
+            symbol = symbol.toUpperCase();
             url += `?symbol=${symbol}`;
             queryMap["symbol"] = symbol;
         }

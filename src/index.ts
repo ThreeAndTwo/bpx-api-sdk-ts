@@ -17,7 +17,7 @@ class BpxSDK {
     private apiKey: string;
     private apiSecret: string;
     private privateKey!: nacl.SignKeyPair;
-    private client: AxiosInstance;
+    private readonly client: AxiosInstance;
 
     market: IMarket;
     system: ISystem;

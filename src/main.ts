@@ -1,10 +1,10 @@
 import BpxSDK from "./index";
-import {Chain} from "./constants";
+import {OrderSide, OrderType} from "./constants";
 import {types} from "./types";
 
 
 // 将Base64编码的私钥解码
-// const privateKeyBytes = Buffer.from("D59Bv+ub5VvIiGiFzYeliFVEqz3JUXnsDmryvVesu4s=", 'base64');
+// const privateKeyBytes = Buffer.from("", 'base64');
 //
 //
 // // 从私钥种子生成密钥对
@@ -32,6 +32,72 @@ async function main() {
     const client = await new BpxSDK(host, apiKey, apiSecret);
     // const pk = client.getPrivateKey();
 
+    const symbol = "sol_usdc";
+    // const executeOrderParams: types.ExecuteOrderParams = {
+    //     orderType: OrderType.OrderLimit,
+    //     side: OrderSide.SideBid,
+    //     symbol: symbol,
+    //     quantity: "0.2",
+    //     price: "1"
+    // }
+    //
+    // const executeOrderResult = await client.order.executeOrder(executeOrderParams);
+    // console.log("executeOrderResult:", executeOrderResult);
+
+
+    // const orderParam: types.OrderParams = {
+    //     orderId: '112155428505387008',
+    //     symbol: symbol
+    // }
+    //
+    // const orderResult = await client.order.cancelOrder(orderParam);
+    // console.log("orderResult: %s", orderResult)
+
+    //
+    const cancelOrdersResult = await client.order.cancelOrders(symbol);
+    console.log("cancelOrdersResult: %s", cancelOrdersResult);
+
+
+    // 112155428505387008
+
+    // client.order.cancelOrder();
+    // client.order.cancelOrders();
+
+
+    // const orderResult = await client.order.getOrder(orderParam);
+    // console.log("orderResult:", orderResult);
+
+    // const ordersResult = await client.order.getOrders();
+    // console.log("ordersResult:", ordersResult);
+
+
+    // let withdrawalsParams: types.WithdrawParams = {
+    //     address: '0x123...',
+    //     blockchain: Chain.Solana, // Assuming types.Chain is an enum with blockchain types
+    //     quantity: '1', // Assuming quantity is a string per your provided code
+    //     symbol: 'SOL_USDC', // Assuming symbol is correctly a string
+    // };
+
+    // const symbol = "sol_usdc";
+    // const orderHistory: types.OrderHistoryParams = {
+    //     // symbol
+    //     offset: 0,
+    //     limit: 100,
+    // }
+    //
+    // const orderHistoryResult = await client.history.getOrderHistory(orderHistory);
+    // console.log("orderHistoryResult:", orderHistoryResult)
+    //
+    //
+    // const fills: types.FillHistoryParams = {
+    //     limit: 0,
+    //     offset: 100,
+    // }
+    //
+    // const fillsResult = await client.history.getFills(fills);
+    // console.log("fillsResult:", fillsResult)
+
+
     // const balances = await client.capital.getBalances();
     // console.log("balances: ", balances);
     //
@@ -44,15 +110,15 @@ async function main() {
     // const withdrawals = await client.capital.getWithdrawals(25, 0);
     // console.log("withdrawals: ", withdrawals);
 
-    let withdrawalsParams: types.WithdrawParams = {
-        address: '0x123...',
-        blockchain: Chain.Solana, // Assuming types.Chain is an enum with blockchain types
-        quantity: '1', // Assuming quantity is a string per your provided code
-        symbol: 'SOL_USDC', // Assuming symbol is correctly a string
-    };
-
-    const withdrawResult = await client.capital.withdrawal(withdrawalsParams);
-    console.log("withdrawResult:", withdrawResult);
+    // let withdrawalsParams: types.WithdrawParams = {
+    //     address: '0x123...',
+    //     blockchain: Chain.Solana, // Assuming types.Chain is an enum with blockchain types
+    //     quantity: '1', // Assuming quantity is a string per your provided code
+    //     symbol: 'SOL_USDC', // Assuming symbol is correctly a string
+    // };
+    //
+    // const withdrawResult = await client.capital.withdrawal(withdrawalsParams);
+    // console.log("withdrawResult:", withdrawResult);
 
     // const withdrawResult = client.capital.withdrawal(withdrawalsParams);
     // console.log("withdrawResult:", withdrawResult);

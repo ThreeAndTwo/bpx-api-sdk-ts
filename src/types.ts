@@ -173,8 +173,8 @@ export namespace types {
     export interface FillHistoryParams {
         orderId?: string;
         symbol?: string;
-        from: number;
-        to: number;
+        from?: number;
+        to?: number;
         limit: number;
         offset: number;
     }
@@ -193,8 +193,8 @@ export namespace types {
     }
 
     export interface OrderParams {
-        clientId: number;
-        orderId: string;
+        clientId?: number;
+        orderId?: string;
         symbol: string;
     }
 
@@ -216,17 +216,17 @@ export namespace types {
     }
 
     export interface ExecuteOrderParams {
-        clientId: number;
+        clientId?: number;
         orderType: OrderType;
-        postOnly: boolean;
-        price: string;
-        quantity: string;
-        quoteQuantity: string;
-        selfTradePrevention: SelfTradePrevention;
+        postOnly?: boolean;
+        price?: string;
+        quantity?: string;
+        quoteQuantity?: string;
+        selfTradePrevention?: SelfTradePrevention;
         side: OrderSide;
         symbol: string;
-        timeInForce: TimeInForce;
-        triggerPrice: string;
+        timeInForce?: TimeInForce;
+        triggerPrice?: string;
     }
 
     export interface ExecuteOrderResult {

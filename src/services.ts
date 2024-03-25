@@ -54,7 +54,7 @@ export interface IOrder {
 
     cancelOrder(params: types.OrderParams): Promise<types.OrderResult | null>;
 
-    getOrders(symbol: string): Promise<types.OrderResult[] | null>;
+    getOrders(symbol?: string): Promise<types.OrderResult[] | null>;
 
     cancelOrders(symbol: string): Promise<types.OrderResult | null>;
 }
