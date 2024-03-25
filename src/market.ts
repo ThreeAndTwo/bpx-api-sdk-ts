@@ -19,9 +19,7 @@ export class Market implements IMarket {
             const response = await this.client.get(`${this.host}/api/v1/assets`);
             return response.data as types.Asset[];
         } catch (error) {
-            // Error handling: you might want to handle or re-throw the error depending on your strategy
-            console.error('Failed to fetch assets', error);
-            throw error; // Rethrow or handle as needed
+            throw error;
         }
     }
 
@@ -30,9 +28,7 @@ export class Market implements IMarket {
             const response = await this.client.get(`${this.host}/api/v1/markets`);
             return response.data as types.Market[];
         } catch (error) {
-            // Error handling: you might want to handle or re-throw the error depending on your strategy
-            console.error('Failed to fetch assets', error);
-            throw error; // Rethrow or handle as needed
+            throw error;
         }
     }
 
@@ -46,9 +42,7 @@ export class Market implements IMarket {
             const response = await this.client.get(`${this.host}/api/v1/ticker?symbol=${symbol}`);
             return response.data as types.Ticker;
         } catch (error) {
-            // Error handling: you might want to handle or re-throw the error depending on your strategy
-            console.error('Failed to fetch assets', error);
-            throw error; // Rethrow or handle as needed
+            throw error;
         }
     }
 
@@ -57,9 +51,8 @@ export class Market implements IMarket {
             const response = await this.client.get(`${this.host}/api/v1/tickers`);
             return response.data as types.Ticker[];
         } catch (error) {
-            // Error handling: you might want to handle or re-throw the error depending on your strategy
             console.error('Failed to fetch assets', error);
-            throw error; // Rethrow or handle as needed
+            throw error;
         }
     }
 
@@ -73,9 +66,8 @@ export class Market implements IMarket {
             const response = await this.client.get(`${this.host}/api/v1/depth?symbol=${symbol}`);
             return response.data as types.DepthData;
         } catch (error) {
-            // Error handling: you might want to handle or re-throw the error depending on your strategy
             console.error('Failed to fetch assets', error);
-            throw error; // Rethrow or handle as needed
+            throw error;
         }
     }
 
@@ -97,9 +89,7 @@ export class Market implements IMarket {
             const response = await this.client.get(url);
             return response.data as types.KLine[];
         } catch (error) {
-            // Error handling: you might want to handle or re-throw the error depending on your strategy
-            console.error('Failed to fetch assets', error);
-            throw error; // Rethrow or handle as needed
+            throw error;
         }
     }
 }

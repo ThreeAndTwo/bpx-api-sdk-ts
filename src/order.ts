@@ -44,7 +44,6 @@ export class Order implements IOrder {
             });
             return response.data as types.OrderResult;
         } catch (error) {
-            console.error(error);
             return null;
         }
     }
@@ -66,7 +65,6 @@ export class Order implements IOrder {
             });
             return response.data as types.OrderResult;
         } catch (error) {
-            console.error(error);
             return null;
         }
     }
@@ -108,7 +106,6 @@ export class Order implements IOrder {
             const response = await this.client.post(`${this.host}/api/v1/order`, bodyMap, {headers});
             return response.data as types.ExecuteOrderResult;
         } catch (error) {
-            console.error(error);
             return null;
         }
     }
@@ -143,7 +140,6 @@ export class Order implements IOrder {
             const response = await this.client.get(url, {headers});
             return response.data as types.OrderResult;
         } catch (error) {
-            console.error(error);
             return null;
         }
     }
@@ -166,7 +162,6 @@ export class Order implements IOrder {
             const response = await this.client.get(url, {headers});
             return response.data as types.OrderResult[];
         } catch (error) {
-            console.error(error);
             return null;
         }
     }

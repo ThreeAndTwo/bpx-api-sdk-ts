@@ -26,10 +26,8 @@ export class Trades implements ITrades {
 
         try {
             const response = await this.client.get(url);
-            return response.data as types.Trade[]; // Or handle the data as needed
+            return response.data as types.Trade[];
         } catch (error) {
-            // Handle error or rethrow
-            console.error("Failed to fetch trades:", error);
             throw error;
         }
     }
@@ -45,14 +43,11 @@ export class Trades implements ITrades {
         offset = formatOffset(offset);
         url += `&offset=${offset}`;
 
-        // Assuming the Axios instance is available via this.client or similarly
-        // Perform the GET request with Axios and handle the response
         try {
             const response = await this.client.get(url);
-            return response.data as types.Trade[]; // You may need to process this further depending on your API response structure
+            return response.data as types.Trade[];
         } catch (error) {
-            console.error('Failed to fetch trade history:', error);
-            throw error; // Or handle the error as needed
+            throw error;
         }
     }
 }
